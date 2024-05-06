@@ -1,0 +1,17 @@
+[package]
+name = "blpapi"
+version = "0.1.0"
+
+[dependencies]
+blpapi-sys = { path = "../blpapi-sys", version = "0.1.0" }
+lazy_static = "1.4.0"
+log = "0.4.8"
+blpapi-derive = { path = "../blpapi-derive", version = "0.1.0", optional = true }
+chrono = { version = "0.4.9", optional = true }
+
+[features]
+default = []
+derive = [ "blpapi-derive" ]
+dates = [ "chrono" ]
+full = [ "blpapi-derive", "chrono" ]
+bundled = [ "blpapi-sys/bundled" ]

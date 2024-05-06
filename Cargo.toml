@@ -1,0 +1,7 @@
+[package]
+name = "blpapi"
+version = "0.1.0"
+edition = "2021"
+
+[workspace]
+members = [ "blpapi", "blpapi-sys", "blpapi-derive", "blpapi/examples/reference_data", "blpapi/examples/historical_data" ]

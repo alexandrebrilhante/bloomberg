@@ -1,0 +1,10 @@
+[package]
+name = "blpapi-sys"
+version = "0.1.0"
+
+build = "build.rs"
+
+[dependencies]
+
+[features]
+bundled = []
