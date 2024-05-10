@@ -1,5 +1,5 @@
+use crate::bindings::*;
 use crate::{request::Request, Error};
-use blpapi_sys::*;
 use std::ffi::CStr;
 
 pub struct Service(pub(crate) *mut blpapi_Service_t);

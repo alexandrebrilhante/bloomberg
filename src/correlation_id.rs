@@ -1,4 +1,4 @@
-use blpapi_sys::*;
+use crate::bindings::*;
 use std::os::raw::c_uint;
 
 const DEFAULT_CLASS_ID: c_uint = 0;

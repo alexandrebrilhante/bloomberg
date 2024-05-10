@@ -18,7 +18,7 @@ const ENV_WARNING: &'static str = r#"Error while building blpapi-sys.
 fn main() {
     let lib_dir: String = if cfg!(feature = "bundled") {
         let mut dir: PathBuf = PathBuf::from(env!("CARGO_MANIFEST_DIR"));
-        
+
         dir.pop();
         dir.push("vendor");
 

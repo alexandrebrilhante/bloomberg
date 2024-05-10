@@ -1,4 +1,4 @@
-use blpapi_sys::*;
+use crate::bindings::*;
 use std::ffi::{CStr, CString};
 
 lazy_static::lazy_static! {

@@ -1,4 +1,4 @@
-use blpapi_sys::*;
+use crate::bindings::*;
 use std::os::raw::c_int;
 
 pub struct Datetime(pub(crate) blpapi_Datetime_t);

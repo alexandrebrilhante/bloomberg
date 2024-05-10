@@ -1,5 +1,5 @@
+use crate::bindings::*;
 use crate::{correlation_id::CorrelationId, element::Element, event::Event, name::Name};
-use blpapi_sys::*;
 use std::ffi::CStr;
 use std::marker::PhantomData;
 

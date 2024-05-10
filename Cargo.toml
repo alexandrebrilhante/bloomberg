@@ -1,7 +1,9 @@
 [package]
-name = "blpapi"
-version = "0.1.0"
+name = "bloomberg"
+version = "0.2.0"
 edition = "2021"
 
-[workspace]
-members = [ "blpapi", "blpapi-sys", "blpapi-derive", "blpapi/examples/reference_data", "blpapi/examples/historical_data" ]
+[dependencies]
+lazy_static = "1.4.0"
+log = "0.4.8"
+chrono = { version = "0.4.9" }

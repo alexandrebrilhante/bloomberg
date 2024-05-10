@@ -1,5 +1,5 @@
+use crate::bindings::*;
 use crate::{session::SessionSync, Error};
-use blpapi_sys::*;
 use std::ffi::{CStr, CString};
 use std::os::raw::c_int;
 
@@ -108,6 +108,6 @@ mod tests {
 
         assert_eq!(host, options.server_host());
 
-        let session: SessionSync = options.sync();
+        let _session: SessionSync = options.sync();
     }
 }

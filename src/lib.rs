@@ -1,3 +1,4 @@
+pub mod bindings;
 pub mod correlation_id;
 pub mod datetime;
 pub mod element;
@@ -12,8 +13,6 @@ pub mod service;
 pub mod session;
 pub mod session_options;
 
-#[cfg(feature = "derive")]
-pub use blpapi_derive::*;
 pub use errors::Error;
 pub use ref_data::RefData;
 pub use session::SessionSync;

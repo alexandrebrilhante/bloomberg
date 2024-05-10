@@ -1,10 +1,10 @@
+use crate::bindings::*;
 use crate::{
     element::{Element, SetValue},
     name::Name,
     service::Service,
     Error,
 };
-use blpapi_sys::*;
 use std::ffi::CString;
 
 pub struct Request {

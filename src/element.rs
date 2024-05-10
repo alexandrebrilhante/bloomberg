@@ -1,6 +1,5 @@
+use crate::bindings::*;
 use crate::{datetime::Datetime, name::Name, Error};
-
-use blpapi_sys::*;
 use std::{
     ffi::{CStr, CString},
     marker::PhantomData,
@@ -496,15 +495,6 @@ impl<'a, V: GetValue> Iterator for Values<'a, V> {
         self.i += 1;
 
         v
-    }
-}
-
-#[cfg(feature = "dates")]
-impl GetValue for chrono::NaiveDate {
-    fn get_at(element: &Element, index: usize) -> Option<Self> {
-        element.get_at(index).map(|d: Datetime| {
-            chrono::NaiveDate::from_ymd(d.0.year as i32, d.0.month as u32, d.0.day as u32)
-        })
     }
 }
 

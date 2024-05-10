@@ -1,5 +1,5 @@
+use crate::bindings::*;
 use crate::{event::Event, message::Message};
-use blpapi_sys::*;
 use std::marker::PhantomData;
 use std::ptr;
 

@@ -1,4 +1,7 @@
+#![allow(dead_code)]
+
 use crate::{
+    bindings::*,
     correlation_id::CorrelationId,
     element::Element,
     event::{Event, EventType},
@@ -9,7 +12,6 @@ use crate::{
     session_options::SessionOptions,
     Error,
 };
-use blpapi_sys::*;
 use std::collections::HashMap;
 use std::{ffi::CString, ptr};
 
@@ -25,7 +27,7 @@ pub struct Session {
 impl Session {
     fn from_options(options: SessionOptions) -> Self {
         let handler: Option<
-            unsafe fn(*mut blpapi_Event, *mut blpapi_Session, *mut std::ffi::c_void),
+            unsafe extern "C" fn(*mut blpapi_Event, *mut blpapi_Session, *mut std::ffi::c_void),
         > = None;
         let dispatcher: *mut blpapi_EventDispatcher = ptr::null_mut();
         let user_data: *mut std::ffi::c_void = ptr::null_mut();
@@ -279,13 +281,7 @@ impl SessionSync {
                                         let name = &field.string_name();
 
                                         if name == "date" {
-                                            #[cfg(feature = "dates")]
-                                            entry
-                                                .dates
-                                                .extend(field.get_at::<chrono::NaiveDate>(0));
-
-                                            #[cfg(not(feature = "dates"))]
-                                            entry.dates.extend(field.get_at(0));
+                                            // entry.dates.extend(field.get_at(0));
                                         } else {
                                             value.on_field(name, &field);
                                         }
@@ -441,9 +437,8 @@ impl HistOptions {
 
 #[derive(Default, Debug)]
 pub struct TimeSerie<R> {
-    #[cfg(feature = "dates")]
-    pub dates: Vec<chrono::NaiveDate>,
     pub values: Vec<R>,
+    dates: Vec<chrono::NaiveDate>,
 }
 
 impl<R> TimeSerie<R> {
@@ -501,7 +496,7 @@ mod tests {
 
     #[test]
     fn send_request() -> Result<(), Error> {
-        let mut session: SessionSync = SessionOptions::default()
+        let mut _session: SessionSync = SessionOptions::default()
             .with_server_host("localhost")?
             .with_server_port(8194)?
             .sync();

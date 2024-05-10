@@ -1,4 +1,4 @@
-# blpapi
+# bloomberg
 
 A Rust wrapper for Bloomberg's `blpapi`.
 
@@ -11,7 +11,7 @@ Add the following the following to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-blpapi = { version = "0.1.0", features = [ "derive", "dates" ] }
+bloomberg = { version = "0.2.0" }
 ```
 
 ### Example
@@ -25,11 +25,15 @@ struct Price {
     px_last: f64,
 }
 
-let mut session = SessionSync::new().unwrap();
+fn main() {
+    let mut session = SessionSync::new().unwrap();
 
-let securities: &[&str] = &[ "IBM US Equity" ];
+    let securities: &[&str] = &[ "IBM US Equity" ];
 
-let options = HistOptions::new("20240401", "20240430");
+    let options = HistOptions::new("20240401", "20240430");
 
-let prices = session.hist_data::<_, Price>(securities, options);
+    let prices = session.hist_data::<_, Price>(securities, options);
+
+    prices
+}
 ```

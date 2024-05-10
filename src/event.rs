@@ -1,6 +1,5 @@
+use crate::bindings::*;
 use crate::message_iterator::MessageIterator;
-
-use blpapi_sys::*;
 use std::os::raw::c_int;
 
 pub struct Event(pub(crate) *mut blpapi_Event_t);
