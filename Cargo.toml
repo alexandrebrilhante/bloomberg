@@ -2,6 +2,12 @@
 name = "bloomberg"
 version = "0.2.0"
 edition = "2021"
+description = "Rust API for Bloomberg."
+license = "MIT"
+repository = "https://github.com/alexandrebrilhante/bloomberg"
+
+[lib]
+path = "src/lib.rs"
 
 [dependencies]
 lazy_static = "1.4.0"
