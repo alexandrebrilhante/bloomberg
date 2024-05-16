@@ -14,8 +14,8 @@ Add the following the following to your `Cargo.toml`:
 bloomberg = { version = "0.2.0" }
 ```
 
-### Example
-#### Historical Data
+## Example
+### Historical Data
 
 ```rust
 use blpapi::{RefData, session::{SessionSync, HistOptions}};
