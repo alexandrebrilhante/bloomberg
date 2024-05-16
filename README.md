@@ -34,6 +34,6 @@ fn main() {
 
     let prices = session.hist_data::<_, Price>(securities, options);
 
-    prices
+    println!(prices);
 }
 ```
