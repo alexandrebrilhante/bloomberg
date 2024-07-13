@@ -1,5 +1,7 @@
 # bloomberg
 
+[![Build](https://github.com/alexandrebrilhante/bloomberg/actions/workflows/build.yml/badge.svg)](https://github.com/alexandrebrilhante/bloomberg/actions/workflows/build.yml)
+
 A Rust wrapper for Bloomberg's `blpapi`.
 
 This is a work in progress and not intended to be used in production in its current version.
